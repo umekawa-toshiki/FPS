@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject Player;
     public GameObject Camera;
     private float speed;
-    public float bulletspeed = 1000;
+    
 
     //マウスの感度
     public float sensitive = 1.0F;
@@ -14,22 +14,12 @@ public class PlayerController : MonoBehaviour {
     private Transform PlayerTransform;
     private Transform CameraTransform;
 
-    //弾のprefab
-    public GameObject bullet;
-
-    //弾の発射場所
-    public Transform Muzzle;
-
-    Gun gun;
-
     // Use this for initialization
     void Start()
     {
         //コンポーネントの取得
         PlayerTransform = transform.parent;
         CameraTransform = GetComponent<Transform>();
-        gun = GetComponent<Gun>();
-        gun.SetGunInfo("SCAR", 20, 30, 0.5f);
     }
 
     // Update is called once per frame
@@ -75,20 +65,6 @@ public class PlayerController : MonoBehaviour {
         else
         {
             speed = 3;
-        }
-        //弾を撃つ処理
-        if (Input.GetMouseButton(0))
-        {
-            //弾の複製
-            GameObject bullets = GameObject.Instantiate(bullet) as GameObject;
-
-            Rigidbody bulletsRigidbody = bullets.GetComponent<Rigidbody>();
-            bulletsRigidbody.AddForce(transform.forward * bulletspeed);
-
-            //弾の位置を調整
-            bullets.transform.position = Muzzle.position;
-            //弾の消去
-
         }
     }
 }
