@@ -27,4 +27,13 @@ public class Gun : MonoBehaviour {
     {
        return bulletnumber;
     }
+
+    public float getDelay()
+    {
+        return delay;
+    }
+    public string getName()
+    {
+        return name;
+    }
 }

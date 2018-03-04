@@ -13,20 +13,22 @@ public class GunController : MonoBehaviour {
     public float bulletspeed = 1000;
     //弾数表示
     public Text Bulletcount;
+    public Text Gunname;
     //打った数を数える
     private int bulletcount;
 
-    public float timeOut;
+    private float timeOut;
     private float timeTrigger;
 
     Gun gun = new Gun();
 
 
     void Start () {
-        
-        gun.SetGunInfo("SCAR", 20, 30, 1);
+        gun.SetGunInfo("SCAR", 20, 30, 0.1f);
         bulletcount = gun.getBulletnumber();
         Bulletcount.text = "残弾数：" + bulletcount;
+        Gunname.text = gun.getName();
+        timeOut = gun.getDelay();
     }
 	
 
@@ -44,14 +46,13 @@ public class GunController : MonoBehaviour {
             {
                 //撃つ
                 Shot();
+                //次の弾を撃つまでの時間
                 timeTrigger = Time.time + timeOut;
+
+                //残弾数を減らす
                 bulletcount -= 1;
                 Bulletcount.text = "残弾数：" + bulletcount;
             }
-            
-            
-
-            
         }
         //リロード
         if (Input.GetKeyDown(KeyCode.R))
