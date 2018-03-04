@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gun : MonoBehaviour {
     private string name = "";   //銃の名前
     private int attack = 0;   //威力
-    protected int bulletnumber = 0; //残弾
+    private int bulletnumber = 0; //残弾
     private float delay = 0;    //次に弾を撃つまでの間隔
 
     //ダメージ計算
@@ -23,12 +23,8 @@ public class Gun : MonoBehaviour {
     }
 
     //弾数表示
-    public int Bulletnumber
+    public int getBulletnumber()
     {
-        //弾数表示のため
-        get
-        {
-            return bulletnumber;
-        }
+       return bulletnumber;
     }
 }

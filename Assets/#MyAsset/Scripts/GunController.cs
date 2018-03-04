@@ -15,14 +15,13 @@ public class GunController : Gun {
     //打った数を数える
     private int bulletcount;
 
-    //銃クラスのインスタンス生成
-    Gun gun = new Gun();
+    
 
 
     void Start () {
+
         SetGunInfo("SCAR", 20, 30, 1);
-        bulletcount = gun.Bulletnumber;
-        
+        bulletcount = getBulletnumber();
         //Bulletcount.text = "残弾数：" + gun.Bulletnumber;
     }
 	
@@ -35,8 +34,14 @@ public class GunController : Gun {
                 return;
 
             Shot();
+            
 
             bulletcount -= 1;
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            bulletcount = getBulletnumber();
         }
     }
 
