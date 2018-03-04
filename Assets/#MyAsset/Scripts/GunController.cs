@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GunController : Gun {
+
+public class GunController : MonoBehaviour {
     //弾のprefab
     public GameObject bullet;
     //弾の発射場所
@@ -15,33 +16,48 @@ public class GunController : Gun {
     //打った数を数える
     private int bulletcount;
 
-    
+    public float timeOut;
+    private float timeTrigger;
+
+    Gun gun = new Gun();
 
 
     void Start () {
-
-        SetGunInfo("SCAR", 20, 30, 1);
-        bulletcount = getBulletnumber();
-        //Bulletcount.text = "残弾数：" + gun.Bulletnumber;
+        
+        gun.SetGunInfo("SCAR", 20, 30, 1);
+        bulletcount = gun.getBulletnumber();
+        Bulletcount.text = "残弾数：" + bulletcount;
     }
 	
 
 	void Update () {
+        
+
         //弾を撃つ処理
         if (Input.GetMouseButton(0))
         {
+            //残弾がなくなったら
             if(bulletcount < 1)
                 return;
-
-            Shot();
+            //連射速度
+            if (Time.time > timeTrigger)
+            {
+                //撃つ
+                Shot();
+                timeTrigger = Time.time + timeOut;
+                bulletcount -= 1;
+                Bulletcount.text = "残弾数：" + bulletcount;
+            }
+            
             
 
-            bulletcount -= 1;
+            
         }
-
+        //リロード
         if (Input.GetKeyDown(KeyCode.R))
         {
-            bulletcount = getBulletnumber();
+            bulletcount = gun.getBulletnumber();
+            Bulletcount.text = "残弾数：" + bulletcount;
         }
     }
 

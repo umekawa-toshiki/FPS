@@ -844,4 +844,5 @@ MonoBehaviour:
   bullet: {fileID: 1453715927791256, guid: 5d1f9dd0c6dcd4f4f9ef4e21457d66d8, type: 2}
   Muzzle: {fileID: 382095303}
   bulletspeed: 1000
-  Bulletcount: {fileID: 0}
+  Bulletcount: {fileID: 34594881}
+  timeOut: 0.1
