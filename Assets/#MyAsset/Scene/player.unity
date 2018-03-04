@@ -531,6 +531,7 @@ GameObject:
   - component: {fileID: 2146074934}
   - component: {fileID: 2146074933}
   - component: {fileID: 2146074932}
+  - component: {fileID: 2146074935}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -603,3 +604,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2146074930}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2146074935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2146074930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c17b7abb65c5f46804b56afdb9b67f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deray: 0
+  bullet: {fileID: 0}
+  Muzzle: {fileID: 0}
+  speed: 1000
