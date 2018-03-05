@@ -80,6 +80,7 @@
   <ItemGroup>
     <Compile Include="Assets\#MyAsset\Scripts\Gun.cs" />
     <Compile Include="Assets\#MyAsset\Scripts\GunController.cs" />
+    <Compile Include="Assets\#MyAsset\Scripts\MP5.cs" />
     <Compile Include="Assets\#MyAsset\Scripts\Person.cs" />
     <Compile Include="Assets\#MyAsset\Scripts\PlayerController.cs" />
     <Compile Include="Assets\#MyAsset\Scripts\SCAR.cs" />

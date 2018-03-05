@@ -78,21 +78,16 @@ public class PlayerController : MonoBehaviour {
     }
 
     //銃を拾う時
-    IEnumerator OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Gun")
         {
-            
             gun = collision.gameObject;
             
             gun.transform.position = GunTransform.position;
            
             gun.transform.parent = Player.transform;
         }
-
-       
-        yield return new WaitForSeconds(3);
-
     }
 }
 

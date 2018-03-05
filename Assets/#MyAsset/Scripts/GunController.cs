@@ -12,23 +12,29 @@ public class GunController : MonoBehaviour {
     //弾の速度
     public float bulletspeed = 1000;
     //弾数表示
-    public Text Bulletcount;
-    public Text Gunname;
+    private Text Bulletcount;
+    private Text Gunname;
     //打った数を数える
     private int bulletcount;
 
+    //時間経過を保存
     private float timeOut;
     private float timeTrigger;
 
-    /*
+    //銃の種類
+
+    Gun gunType = new SCAR() as Gun;
+
     void Start () {
-        bulletcount = gun.getBulletnumber();
+        
+
+        bulletcount = gunType.getBulletnumber();
         Bulletcount.text = "残弾数：" + bulletcount;
-        Gunname.text = gun.getName();
-        timeOut = gun.getDelay();
+        Gunname.text = gunType.getName();
+        timeOut = gunType.getDelay();
     }
 	
-
+    
 	void Update () {
         
 
@@ -54,7 +60,7 @@ public class GunController : MonoBehaviour {
         //リロード
         if (Input.GetKeyDown(KeyCode.R))
         {
-            bulletcount = gun.getBulletnumber();
+            bulletcount = gunType.getBulletnumber();
             Bulletcount.text = "残弾数：" + bulletcount;
         }
     }
@@ -72,5 +78,5 @@ public class GunController : MonoBehaviour {
         //弾の削除　2秒後
         Destroy(bullets, 2.0f);
     }
-    */
+    
 }
