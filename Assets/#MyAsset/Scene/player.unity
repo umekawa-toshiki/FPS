@@ -192,6 +192,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 116885091}
+  - component: {fileID: 116885092}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -206,13 +207,29 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 116885090}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.55, y: 0.52699995, z: 0.39400005}
+  m_LocalPosition: {x: 0.366, y: 0.52699995, z: 0.56999993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 382095303}
   m_Father: {fileID: 507304693}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &116885092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 116885090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c17b7abb65c5f46804b56afdb9b67f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 1453715927791256, guid: 5d1f9dd0c6dcd4f4f9ef4e21457d66d8, type: 2}
+  Muzzle: {fileID: 382095303}
+  bulletspeed: 1000
+  Bulletcount: {fileID: 0}
+  Gunname: {fileID: 0}
 --- !u!1 &382095302
 GameObject:
   m_ObjectHideFlags: 0
