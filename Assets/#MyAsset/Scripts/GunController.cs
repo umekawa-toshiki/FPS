@@ -20,11 +20,8 @@ public class GunController : MonoBehaviour {
     private float timeOut;
     private float timeTrigger;
 
-    Gun gun = new Gun();
-
-
+    /*
     void Start () {
-        gun.SetGunInfo("SCAR", 20, 30, 0.1f);
         bulletcount = gun.getBulletnumber();
         Bulletcount.text = "残弾数：" + bulletcount;
         Gunname.text = gun.getName();
@@ -75,4 +72,5 @@ public class GunController : MonoBehaviour {
         //弾の削除　2秒後
         Destroy(bullets, 2.0f);
     }
+    */
 }

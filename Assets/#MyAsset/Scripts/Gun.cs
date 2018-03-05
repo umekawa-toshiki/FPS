@@ -8,13 +8,8 @@ public class Gun : MonoBehaviour {
     private int bulletnumber = 0; //残弾
     private float delay = 0;    //次に弾を撃つまでの間隔
 
-    //ダメージ計算
-    void damageCalc()
-    {
-
-    }
-    //銃の情報を入れる
-    public void SetGunInfo(string name,int attack,int bulletnumber,float delay)
+    //コンストラクタ
+    public Gun(string name,int attack,int bulletnumber,float delay)
     {
         this.name = name;
         this.attack = attack;
@@ -22,7 +17,15 @@ public class Gun : MonoBehaviour {
         this.delay = delay;
     }
 
-    //弾数表示
+    //getter
+    public string getName()
+    {
+        return name;
+    }
+    public int getAttack()
+    {
+        return attack;
+    }
     public int getBulletnumber()
     {
        return bulletnumber;
@@ -31,9 +34,5 @@ public class Gun : MonoBehaviour {
     public float getDelay()
     {
         return delay;
-    }
-    public string getName()
-    {
-        return name;
     }
 }
