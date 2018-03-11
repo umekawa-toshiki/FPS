@@ -7,32 +7,70 @@ public class Gun : MonoBehaviour {
     private int attack = 0;   //威力
     private int bulletnumber = 0; //残弾
     private float delay = 0;    //次に弾を撃つまでの間隔
+    private bool have;
+    [SerializeField]
+    private Transform muzzle;
 
-    //コンストラクタ
-    public Gun(string name,int attack,int bulletnumber,float delay)
+    //初期値代入
+    public void setGunInfo(string name,int attack,int bulletnumber,float delay,bool have)
     {
         this.name = name;
         this.attack = attack;
         this.bulletnumber = bulletnumber;
         this.delay = delay;
+        this.have = have;
     }
 
-    //getter
-    public string getName()
+    public string Name
     {
-        return name;
-    }
-    public int getAttack()
-    {
-        return attack;
-    }
-    public int getBulletnumber()
-    {
-       return bulletnumber;
+        get
+        {
+            return name;
+        }
+        
     }
 
-    public float getDelay()
+    public int Attack
     {
-        return delay;
+        get
+        {
+            return attack;
+        }
+    }
+
+    public int Bulletnumber
+    {
+        get
+        {
+            return bulletnumber;
+        }
+       
+    }
+
+    public float Delay
+    {
+        get
+        {
+            return delay;
+        }
+        
+    }
+    public Transform Muzzle
+    {
+        get
+        {
+            return muzzle;
+        }
+    }
+
+    public bool Have
+    {
+        set{
+            have = value;
+        }
+        get
+        {
+            return have;
+        }
     }
 }

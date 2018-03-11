@@ -6,9 +6,9 @@ public class Person : MonoBehaviour {
     //人物のスーパークラス
 
     //体力
-    private int hp;
+    protected int hp;
     //移動速度
-    private float speed;
+    protected float speed;
 
     public float Speed
     {

@@ -22,61 +22,15 @@ public class GunController : MonoBehaviour {
     private float timeTrigger;
 
     //銃の種類
-
-    Gun gunType = new SCAR() as Gun;
+    Gun gunType;
 
     void Start () {
         
-
-        bulletcount = gunType.getBulletnumber();
-        Bulletcount.text = "残弾数：" + bulletcount;
-        Gunname.text = gunType.getName();
-        timeOut = gunType.getDelay();
     }
 	
     
 	void Update () {
-        
-
-        //弾を撃つ処理
-        if (Input.GetMouseButton(0))
-        {
-            //残弾がなくなったら
-            if(bulletcount < 1)
-                return;
-            //連射速度
-            if (Time.time > timeTrigger)
-            {
-                //撃つ
-                Shot();
-                //次の弾を撃つまでの時間
-                timeTrigger = Time.time + timeOut;
-
-                //残弾数を減らす
-                bulletcount -= 1;
-                Bulletcount.text = "残弾数：" + bulletcount;
-            }
-        }
-        //リロード
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            bulletcount = gunType.getBulletnumber();
-            Bulletcount.text = "残弾数：" + bulletcount;
-        }
-    }
-
-    //弾を撃つ
-    void Shot()
-    {
-        //弾の複製
-        GameObject bullets = GameObject.Instantiate(bullet) as GameObject;
-        //弾に力を加える
-        Rigidbody bulletsRigidbody = bullets.GetComponent<Rigidbody>();
-        bulletsRigidbody.AddForce(transform.forward * bulletspeed);
-        //弾の位置を調整
-        bullets.transform.position = Muzzle.position;
-        //弾の削除　2秒後
-        Destroy(bullets, 2.0f);
+       
     }
     
 }
