@@ -9,71 +9,69 @@ public class PlayerController : Person {
 
     private bool have;
 
-    //マウスの感度
+    // マウスの感度
     public float sensitive = 1.0F;
-    //マウス移動
+    // マウス移動
     private Transform CameraTransform;
     private Transform GunTransform;
 
-    //弾のprefab
+    // 弾のprefab
     public GameObject bullet;
-    //弾の速度
-    public float bulletspeed = 1000;
-    //弾数表示
-    private Text Bulletcount;
-    private Text Gunname;
-    //打った数を数える
-    private int bulletcount;
-    //時間経過を保存
+    // 弾の速度
+    public float bulletSpeed = 1000;
+    // 弾数表示
+    private Text BulletCount;
+    private Text GunName;
+    // 打った数を数える
+    private int bulletCount;
+    // 時間経過を保存
     private float timeOut;
     private float timeTrigger;
 
-    //銃の種類を取得
+    // 銃の種類を取得
     Gun gunType;
     GameObject gun;
-
-
 
     // Use this for initialization
     void Start()
     {
-        //コンポーネントの取得
+        // コンポーネントの取得
         CameraTransform = this.gameObject.transform.Find("Main Camera");
         GunTransform = CameraTransform.gameObject.transform.Find("Gun_ADS");
 
-        //Text
-        Bulletcount = GameObject.Find("Canvas/Bulletcount").GetComponent<Text>();
-        Gunname = GameObject.Find("Canvas/Gunname").GetComponent<Text>();
+        // Text
+        BulletCount = GameObject.Find("Canvas/BulletCount").GetComponent<Text>();
+        GunName = GameObject.Find("Canvas/GunName").GetComponent<Text>();
         
 
-        //移動速度
+        // 移動速度
         Speed = 3;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //視点移動
+        // 視点移動
         float X_Rotation = sensitive * Input.GetAxis("Mouse X");
         float Y_Rotation = sensitive * Input.GetAxis("Mouse Y");
         transform.Rotate(0, X_Rotation, 0);
         CameraTransform.transform.Rotate(-Y_Rotation, 0, 0);
-        //銃の向き変更
+        // 銃の向き変更
         GunTransform.transform.Rotate(-Y_Rotation, 0, 0);
         if(have == true) {
             gun.transform.Rotate(-Y_Rotation, 0, 0);
         }
 
 
-        //移動する向きの角度の計算
-        //Math...一般的な数学関数を扱う
-        //Mathf.PI...円周率
-        //transform.eulerAngles.y...オイラー核としての角度
+        // 移動する向きの角度の計算
+        // Math...一般的な数学関数を扱う
+        // Mathf.PI...円周率
+        // transform.eulerAngles.y...オイラー核としての角度
         float angleDir = transform.eulerAngles.y * (Mathf.PI / 180.0f);
         Vector3 dir1 = new Vector3(Mathf.Sin(angleDir), 0, Mathf.Cos(angleDir));
         Vector3 dir2 = new Vector3(-Mathf.Cos(angleDir), 0, Mathf.Sin(angleDir));
 
-        //WASDで移動
+        // WASDで移動
         if (Input.GetKey(KeyCode.W))
         {
             transform.position += dir1 * Speed * Time.deltaTime;
@@ -90,7 +88,7 @@ public class PlayerController : Person {
         {
             transform.position += -dir1 * Speed * Time.deltaTime;
         }
-        //走る
+        // 走る
         if (Input.GetKey(KeyCode.LeftShift))
         {
             Speed = 5;
@@ -101,35 +99,35 @@ public class PlayerController : Person {
         }
 
 
-        //弾を撃つ処理
+        // 弾を撃つ処理
         if (Input.GetMouseButton(0))
         {
-            //残弾がなくなったら
-            if (bulletcount < 1)
+            // 残弾がなくなったら
+            if (bulletCount < 1)
                 return;
-            //連射速度
+            // 連射速度
             if (Time.time > timeTrigger)
             {
-                //撃つ
+                // 撃つ
                 Shot();
-                //次の弾を撃つまでの時間
+                // 次の弾を撃つまでの時間
                 timeTrigger = Time.time + timeOut;
 
-                //残弾数を減らす
-                bulletcount -= 1;
-                Bulletcount.text = "残弾数：" + bulletcount;
+                // 残弾数を減らす
+                bulletCount -= 1;
+                BulletCount.text = "残弾数：" + bulletCount;
             }
         }
 
-        //リロード
+        // リロード
         if (Input.GetKeyDown(KeyCode.R))
         {
-            bulletcount = gunType.Bulletnumber;
-            Bulletcount.text = "残弾数：" + bulletcount;
+            bulletCount = gunType.Bulletnumber;
+            BulletCount.text = "残弾数：" + bulletCount;
         }
     }
 
-    //銃を拾う時
+    // 銃を拾う時
     void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Gun")
@@ -138,29 +136,29 @@ public class PlayerController : Person {
             gun = collision.gameObject;
             gunType = gun.GetComponent<Gun>();
 
-            //銃の位置を決める
+            // 銃の位置を決める
             gun.transform.position = GunTransform.position;
             gun.transform.rotation = GunTransform.rotation;
 
             gun.transform.parent = Player.transform;
             have = true;
 
-            bulletcount = gunType.Bulletnumber;
-            Bulletcount.text = "残弾数：" + bulletcount;
-            Gunname.text = gunType.Name;
+            bulletCount = gunType.Bulletnumber;
+            BulletCount.text = "残弾数：" + bulletCount;
+            GunName.text = gunType.Name;
             timeOut = gunType.Delay;
         }
     }
 
-    //弾を撃つ
+    // 弾を撃つ
     void Shot()
     {
-        //弾の複製
+        // 弾の複製
         GameObject bullets = GameObject.Instantiate(bullet, gunType.Muzzle.transform.position, gunType.Muzzle.transform.rotation);
-        //弾に力を加える
+        // 弾に力を加える
         Rigidbody bulletsRigidbody = bullets.GetComponent<Rigidbody>();
-        bulletsRigidbody.AddForce(gunType.Muzzle.transform.forward * bulletspeed);
-        //弾の削除　2秒後
+        bulletsRigidbody.AddForce(gunType.Muzzle.transform.forward * bulletSpeed);
+        // 弾の削除 2秒後
         Destroy(bullets, 2.0f);
     }
 }

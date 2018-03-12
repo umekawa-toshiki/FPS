@@ -2,75 +2,67 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// 銃クラス
 public class Gun : MonoBehaviour {
-    private string name = "";   //銃の名前
-    private int attack = 0;   //威力
-    private int bulletnumber = 0; //残弾
-    private float delay = 0;    //次に弾を撃つまでの間隔
-    private bool have;
+    
+    // 銃の名前
+    private string name = "";
+
+    // 威力
+    private int power = 0;
+
+    // 残弾
+    private int bulletNumber = 0;
+
+    // 次に弾を撃つまでの間隔 
+    private float delay = 0;
+
+    // 銃が持たれていれば true
+    private bool isHaved = null;
+
     [SerializeField]
     private Transform muzzle;
 
-    //初期値代入
-    public void setGunInfo(string name,int attack,int bulletnumber,float delay,bool have)
+    // 銃の情報を一括で設定するメソッド
+    public void setGunInfo(string name, int power, int bulletNumber, float delay, bool isHaved)
     {
         this.name = name;
-        this.attack = attack;
-        this.bulletnumber = bulletnumber;
+        this.power = power;
+        this.bulletNumber = bulletNumber;
         this.delay = delay;
-        this.have = have;
+        this.isHaved = isHaved;
     }
 
+	// 各プロパティ
     public string Name
     {
-        get
-        {
-            return name;
-        }
-        
+		set { name = value; }
+        get { return name; }
     }
-
-    public int Attack
+    public int Power
     {
-        get
-        {
-            return attack;
-        }
+		set { power = value; }
+        get { return power; }
     }
-
     public int Bulletnumber
     {
-        get
-        {
-            return bulletnumber;
-        }
-       
+		set { bulletNumber = value; }
+        get { return bulletNumber; }
     }
 
     public float Delay
     {
-        get
-        {
-            return delay;
-        }
-        
+		set { delay = value; }
+        get { return delay; }
     }
     public Transform Muzzle
     {
-        get
-        {
-            return muzzle;
-        }
+		set { muzzle = value; }
+        get { return muzzle; }
     }
-
-    public bool Have
+    public bool IsHaved
     {
-        set{
-            have = value;
-        }
-        get
-        {
-            return have;
-        }
+        set { isHaved = value; }
+        get { return isHaved; }
     }
 }
