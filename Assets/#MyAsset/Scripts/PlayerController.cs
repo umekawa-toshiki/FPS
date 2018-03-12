@@ -101,16 +101,19 @@ public class PlayerController : Person {
         }
 
         // ADS
-        if (Input.GetMouseButton(1))
+        if (have == true)
         {
-            gun.transform.position = GunTransform_ADS.position;
-            gun.transform.rotation = GunTransform_ADS.rotation;
-        }
+            if (Input.GetMouseButton(1))
+            {
+                gun.transform.position = GunTransform_ADS.position;
+                gun.transform.rotation = GunTransform_ADS.rotation;
+            }
 
-        else
-        {
-            gun.transform.position = GunTransform.position;
-            gun.transform.rotation = CameraTransform.rotation;
+            else
+            {
+                gun.transform.position = GunTransform.position;
+                gun.transform.rotation = CameraTransform.rotation;
+            }
         }
 
 
