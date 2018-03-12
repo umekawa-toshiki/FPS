@@ -58,7 +58,7 @@ public class PlayerController : Person {
         transform.Rotate(0, X_Rotation, 0);
         CameraTransform.transform.Rotate(-Y_Rotation, 0, 0);
         // 銃の向き変更
-        GunTransform.transform.Rotate(-Y_Rotation, 0, 0);
+        //GunTransform.transform.Rotate(-Y_Rotation, 0, 0);
         
         if(have == true) {
             gun.transform.Rotate(-Y_Rotation, 0, 0);
@@ -100,8 +100,14 @@ public class PlayerController : Person {
             Speed = 3;
         }
 
-        //ADS
+        // ADS
         if (Input.GetMouseButton(1))
+        {
+            gun.transform.position = GunTransform_ADS.position;
+            gun.transform.rotation = GunTransform_ADS.rotation;
+        }
+
+        else
         {
             gun.transform.position = GunTransform.position;
             gun.transform.rotation = CameraTransform.rotation;
