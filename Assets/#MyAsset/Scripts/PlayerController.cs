@@ -47,6 +47,8 @@ public class PlayerController : Person {
 
         // 移動速度
         Speed = 3;
+
+        // プレイヤーの体力
     }
 
     // Update is called once per frame

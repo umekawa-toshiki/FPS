@@ -329,7 +329,7 @@ MonoBehaviour:
   Camera: {fileID: 1222359956}
   sensitive: 3
   bullet: {fileID: 1453715927791256, guid: 5d1f9dd0c6dcd4f4f9ef4e21457d66d8, type: 2}
-  bulletSpeed: 1000
+  bulletSpeed: 3000
 --- !u!1 &850567768
 GameObject:
   m_ObjectHideFlags: 0
