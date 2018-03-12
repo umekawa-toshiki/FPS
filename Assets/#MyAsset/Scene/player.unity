@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 34594882}
   - component: {fileID: 34594881}
   m_Layer: 5
-  m_Name: Bulletcount
+  m_Name: BulletCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -329,7 +329,7 @@ MonoBehaviour:
   Camera: {fileID: 1222359956}
   sensitive: 3
   bullet: {fileID: 1453715927791256, guid: 5d1f9dd0c6dcd4f4f9ef4e21457d66d8, type: 2}
-  bulletspeed: 1000
+  bulletSpeed: 1000
 --- !u!1 &850567768
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,7 +431,7 @@ GameObject:
   - component: {fileID: 1179779640}
   - component: {fileID: 1179779639}
   m_Layer: 5
-  m_Name: Gunname
+  m_Name: GunName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

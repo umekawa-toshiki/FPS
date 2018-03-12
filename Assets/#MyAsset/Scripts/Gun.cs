@@ -4,13 +4,7 @@ using UnityEngine;
 
 // 銃クラス
 public class Gun : MonoBehaviour {
-<<<<<<< HEAD
-    private string name = "";   //銃の名前
-    private int attack = 0;   //威力
-    private int bulletnumber = 0; //残弾
-    private float delay = 0;    //次に弾を撃つまでの間隔
-    private bool have;
-=======
+
     
     // 銃の名前
     private string name = "";
@@ -25,8 +19,8 @@ public class Gun : MonoBehaviour {
     private float delay = 0;
 
     // 銃が持たれていれば true
-    private bool isHaved = null;
->>>>>>> 24d6038f9cd7fc152fbc0a523ddd30de3f684801
+    private bool isHaved;
+
 
     [SerializeField]
     private Transform muzzle;

@@ -44,13 +44,8 @@ public class PlayerController : Person {
         // Text
         BulletCount = GameObject.Find("Canvas/BulletCount").GetComponent<Text>();
         GunName = GameObject.Find("Canvas/GunName").GetComponent<Text>();
-        
-<<<<<<< HEAD
-        //移動速度
-=======
 
         // 移動速度
->>>>>>> 24d6038f9cd7fc152fbc0a523ddd30de3f684801
         Speed = 3;
     }
 
