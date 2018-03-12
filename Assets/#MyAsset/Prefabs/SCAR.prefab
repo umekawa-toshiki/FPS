@@ -38,7 +38,6 @@ GameObject:
   - component: {fileID: 65206796079670940}
   - component: {fileID: 23778751605963076}
   - component: {fileID: 114265548258099178}
-  - component: {fileID: 114209479647918736}
   m_Layer: 0
   m_Name: SCAR
   m_TagString: Gun
@@ -66,7 +65,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1297687607413636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.63, y: 0.19, z: -0.03}
+  m_LocalPosition: {x: -3.436, y: 0.19, z: 0.402}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children:
   - {fileID: 4091722293859516}
@@ -124,22 +123,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114209479647918736
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1297687607413636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0c17b7abb65c5f46804b56afdb9b67f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
-  Muzzle: {fileID: 0}
-  bulletspeed: 1000
-  Bulletcount: {fileID: 0}
-  Gunname: {fileID: 0}
 --- !u!114 &114265548258099178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -151,3 +134,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e591a7f5aef014e8f08248df6ba0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  muzzle: {fileID: 4091722293859516}

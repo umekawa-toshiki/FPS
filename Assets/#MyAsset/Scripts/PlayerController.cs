@@ -14,6 +14,7 @@ public class PlayerController : Person {
     //マウス移動
     private Transform CameraTransform;
     private Transform GunTransform;
+    private Transform GunTransform_ADS;
 
     //弾のprefab
     public GameObject bullet;
@@ -39,13 +40,13 @@ public class PlayerController : Person {
     {
         //コンポーネントの取得
         CameraTransform = this.gameObject.transform.Find("Main Camera");
-        GunTransform = CameraTransform.gameObject.transform.Find("Gun_ADS");
+        GunTransform = this.gameObject.transform.Find("Gun");
+        GunTransform_ADS = CameraTransform.transform.Find("Gun_ADS");
 
         //Text
         Bulletcount = GameObject.Find("Canvas/Bulletcount").GetComponent<Text>();
         Gunname = GameObject.Find("Canvas/Gunname").GetComponent<Text>();
         
-
         //移動速度
         Speed = 3;
     }
@@ -60,10 +61,11 @@ public class PlayerController : Person {
         CameraTransform.transform.Rotate(-Y_Rotation, 0, 0);
         //銃の向き変更
         GunTransform.transform.Rotate(-Y_Rotation, 0, 0);
+        
         if(have == true) {
             gun.transform.Rotate(-Y_Rotation, 0, 0);
         }
-
+        
 
         //移動する向きの角度の計算
         //Math...一般的な数学関数を扱う
@@ -98,6 +100,13 @@ public class PlayerController : Person {
         else
         {
             Speed = 3;
+        }
+
+        //ADS
+        if (Input.GetMouseButton(1))
+        {
+            gun.transform.position = GunTransform.position;
+            gun.transform.rotation = CameraTransform.rotation;
         }
 
 
@@ -140,7 +149,7 @@ public class PlayerController : Person {
 
             //銃の位置を決める
             gun.transform.position = GunTransform.position;
-            gun.transform.rotation = GunTransform.rotation;
+            gun.transform.rotation = CameraTransform.rotation;
 
             gun.transform.parent = Player.transform;
             have = true;

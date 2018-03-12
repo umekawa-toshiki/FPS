@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 65067064825821650}
   - component: {fileID: 23897953551159688}
   - component: {fileID: 114239811365212482}
-  - component: {fileID: 114834883749113440}
   m_Layer: 0
   m_Name: MP5
   m_TagString: Gun
@@ -135,19 +134,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2753225d82eb3cf4b8d2b40cb82d3fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114834883749113440
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1369161241202128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0c17b7abb65c5f46804b56afdb9b67f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
-  Muzzle: {fileID: 0}
-  bulletspeed: 1000
-  Bulletcount: {fileID: 0}
-  Gunname: {fileID: 0}
+  muzzle: {fileID: 4544545385571370}

@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour {
     private int bulletnumber = 0; //残弾
     private float delay = 0;    //次に弾を撃つまでの間隔
     private bool have;
+
     [SerializeField]
     private Transform muzzle;
 
