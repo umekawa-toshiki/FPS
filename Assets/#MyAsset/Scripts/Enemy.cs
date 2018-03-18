@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour {
         
     // マテリアルをいじっている？
     private Renderer m_renderer = null;
+    // リストの宣言
     private List<GameObject> m_targets = new List<GameObject>();
 
 
@@ -24,12 +25,14 @@ public class Enemy : MonoBehaviour {
         searching.OnLost += OnLost;
     }
 
+    // 見つけた時
     private void OnFound(GameObject i_foundObject)
     {
         m_targets.Add(i_foundObject);
         m_renderer.material = m_foundMaterial;
     }
 
+    // 見失ったとき
     private void OnLost(GameObject i_lostObject)
     {
         m_targets.Remove(i_lostObject);

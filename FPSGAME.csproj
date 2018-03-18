@@ -84,6 +84,7 @@
     <Compile Include="Assets\#MyAsset\Scripts\sample\Point.cs" />
     <Compile Include="Assets\#MyAsset\Scripts\sample\PointGizmoEditor.cs" />
     <Compile Include="Assets\#MyAsset\Scripts\Search\SearchingBehavior.cs" />
+    <Compile Include="Assets\#MyAsset\Scripts\Search\SearchingBehaviorGizmosEditor.cs" />
     <Compile Include="Assets\#MyAsset\Scripts\Weapon\Gun.cs" />
     <Compile Include="Assets\#MyAsset\Scripts\Weapon\MP5.cs" />
     <Compile Include="Assets\#MyAsset\Scripts\Weapon\SCAR.cs" />
