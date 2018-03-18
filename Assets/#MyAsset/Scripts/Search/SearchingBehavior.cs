@@ -137,7 +137,37 @@ public class SearchingBehavior : MonoBehaviour {
         // normalized...magnitudeを1としたベクトル（読み取り専用　magnitude...ベクトルの長さを返す
         Vector3 toTargetFlatDir = (targetPositionXZ - myPositionXZ).normalized;
         Vector3 myForward = transform.forward;
+
         if (!IsWithinRangeAngle(myForward, toTargetFlatDir, m_searchCosTheta))
+        {
+            return false;
+        }
+
+        Vector3 toTargetDir = (targetPosition - myPosition).normalized;
+
+        if (!IsHitRay(myPosition, toTargetDir, i_target))
+        {
+            return false;
+        }
+
+        return true;
+    }
+    // レイに当たったオブジェクトを判定
+    private bool IsHitRay(Vector3 i_fromPosition, Vector3 i_toTargetDir, GameObject i_target)
+    {
+        // 方向ベクトルが無い場合は、同位置にあるものだと判断する。
+        if (i_toTargetDir.sqrMagnitude <= Mathf.Epsilon)
+        {
+            return true;
+        }
+
+        RaycastHit onHitRay;
+        if (!Physics.Raycast(i_fromPosition, i_toTargetDir, out onHitRay, SearchRadius))
+        {
+            return false;
+        }
+
+        if (onHitRay.transform.gameObject != i_target)
         {
             return false;
         }
