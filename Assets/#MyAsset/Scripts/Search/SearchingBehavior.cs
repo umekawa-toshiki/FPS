@@ -10,8 +10,8 @@ public class SearchingBehavior : MonoBehaviour {
     public event System.Action<GameObject> OnLost = (obj) => { };
 
     // 索敵角度の宣言
-    [SerializeField, Range(0.0f, 360.0f)]
-    private float m_searchAngle = 0.0f;
+    [SerializeField]
+    private float m_searchAngle = 90.0f;
     // コライダーの格納場所
     private SphereCollider m_sphereCollider = null;
     // cosθの宣言
@@ -19,16 +19,13 @@ public class SearchingBehavior : MonoBehaviour {
     // 見つけた・見失ったかの判定を入れるList
     private List<FoundData> m_foundList = new List<FoundData>();
 
-
-    // 索敵範囲を狭める
-    // 索敵範囲を決める
-
     // SphereColliderの取得
     private void Awake()
     {
         m_sphereCollider = GetComponent<SphereCollider>();
         ApplySearchAngle();
     }
+    //
     private void Update()
     {
         UpdateFoundObject();

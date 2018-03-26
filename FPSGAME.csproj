@@ -78,13 +78,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\#MyAsset\Scripts\Bullet.cs" />
     <Compile Include="Assets\#MyAsset\Scripts\Enemy.cs" />
     <Compile Include="Assets\#MyAsset\Scripts\Person.cs" />
     <Compile Include="Assets\#MyAsset\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\#MyAsset\Scripts\sample\MoveTo.cs" />
     <Compile Include="Assets\#MyAsset\Scripts\sample\Point.cs" />
     <Compile Include="Assets\#MyAsset\Scripts\sample\PointGizmoEditor.cs" />
+    <Compile Include="Assets\#MyAsset\Scripts\Search\Searching.cs" />
     <Compile Include="Assets\#MyAsset\Scripts\Search\SearchingBehavior.cs" />
     <Compile Include="Assets\#MyAsset\Scripts\Search\SearchingBehaviorGizmosEditor.cs" />
+    <Compile Include="Assets\#MyAsset\Scripts\Weapon\E_Gun.cs" />
     <Compile Include="Assets\#MyAsset\Scripts\Weapon\Gun.cs" />
     <Compile Include="Assets\#MyAsset\Scripts\Weapon\MP5.cs" />
     <Compile Include="Assets\#MyAsset\Scripts\Weapon\SCAR.cs" />
